@@ -1,0 +1,70 @@
+[ {
+  "date" : "20141113",
+  "summary" : [ {
+    "activity" : "walking",
+    "group" : "walking",
+    "duration" : 3293.0,
+    "distance" : 3205.0,
+    "steps" : 4463
+  }, {
+    "activity" : "transport",
+    "group" : "transport",
+    "duration" : 2446.0,
+    "distance" : 14149.0
+  } ],
+  "lastUpdate" : "20141115T232932Z"
+}, {
+  "date" : "20141114",
+  "summary" : [ {
+    "activity" : "cycling",
+    "group" : "cycling",
+    "duration" : 127.0,
+    "distance" : 9.0
+  }, {
+    "activity" : "walking",
+    "group" : "walking",
+    "duration" : 8066.0,
+    "distance" : 5417.0,
+    "steps" : 10761
+  }, {
+    "activity" : "transport",
+    "group" : "transport",
+    "duration" : 24004.0,
+    "distance" : 4159.0
+  } ],
+  "lastUpdate" : "20141115T232932Z"
+}, {
+  "date" : "20141115",
+  "summary" : [ {
+    "activity" : "walking",
+    "group" : "walking",
+    "duration" : 5927.0,
+    "distance" : 4909.0,
+    "steps" : 8050
+  }, {
+    "activity" : "transport",
+    "group" : "transport",
+    "duration" : 41322.0,
+    "distance" : 8851.0
+  } ],
+  "lastUpdate" : "20141117T002546Z"
+}, {
+  "date" : "20141116",
+  "summary" : null,
+  "lastUpdate" : "20141117T123252Z"
+}, {
+  "date" : "20141117",
+  "summary" : [ {
+    "activity" : "walking",
+    "group" : "walking",
+    "duration" : 1380.0,
+    "distance" : 1381.0,
+    "steps" : 1868
+  }, {
+    "activity" : "transport",
+    "group" : "transport",
+    "duration" : 7149.0,
+    "distance" : 67825.0
+  } ],
+  "lastUpdate" : "20141120T195828Z"
+} ]

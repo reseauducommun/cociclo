@@ -1,0 +1,31 @@
+[ {
+  "date" : "20141102",
+  "segments" : [ {
+    "type" : "place",
+    "startTime" : "20141101T142604-0500",
+    "endTime" : "20141102T055543-0500",
+    "place" : {
+      "id" : 274359152,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 45.5373996792,
+        "lon" : -73.5790135485
+      }
+    },
+    "lastUpdate" : "20141102T180318Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20141102T113258-0500",
+    "endTime" : "20141103T070212-0500",
+    "place" : {
+      "id" : 274359152,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 45.5373996792,
+        "lon" : -73.5790135485
+      }
+    },
+    "lastUpdate" : "20141103T120241Z"
+  } ],
+  "lastUpdate" : "20141103T120241Z"
+} ]

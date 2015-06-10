@@ -1,0 +1,18 @@
+[ {
+  "date" : "20141116",
+  "segments" : [ {
+    "type" : "place",
+    "startTime" : "20141116T180907-0500",
+    "endTime" : "20141117T062350-0500",
+    "place" : {
+      "id" : 279240006,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 3.4499544248,
+        "lon" : -76.5396014218
+      }
+    },
+    "lastUpdate" : "20141117T123252Z"
+  } ],
+  "lastUpdate" : "20141117T123252Z"
+} ]

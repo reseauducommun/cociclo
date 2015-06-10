@@ -1,0 +1,186 @@
+[ {
+  "date" : "20141113",
+  "segments" : [ {
+    "type" : "place",
+    "startTime" : "20141113T181419-0500",
+    "endTime" : "20141113T183801-0500",
+    "place" : {
+      "id" : 278188538,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 3.4639859148,
+        "lon" : -76.5301227752
+      }
+    },
+    "lastUpdate" : "20141114T011158Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20141113T184641-0500",
+    "endTime" : "20141113T192450-0500",
+    "place" : {
+      "id" : 278203003,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 3.4603218728,
+        "lon" : -76.5335156109
+      }
+    },
+    "lastUpdate" : "20141114T033339Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20141113T193840-0500",
+    "endTime" : "20141113T194806-0500",
+    "place" : {
+      "id" : 278224958,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 3.4542580434,
+        "lon" : -76.5373589198
+      }
+    },
+    "lastUpdate" : "20141114T033339Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20141113T200701-0500",
+    "endTime" : "20141113T215933-0500",
+    "place" : {
+      "id" : 278224959,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 3.4480823954,
+        "lon" : -76.5412180778
+      }
+    },
+    "lastUpdate" : "20141114T064533Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20141113T225731-0500",
+    "endTime" : "20141114T083358-0500",
+    "place" : {
+      "id" : 278254819,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 3.3646059183,
+        "lon" : -76.559999961
+      }
+    },
+    "lastUpdate" : "20141115T232932Z"
+  } ],
+  "lastUpdate" : "20141115T232932Z"
+}, {
+  "date" : "20141114",
+  "segments" : [ {
+    "type" : "place",
+    "startTime" : "20141113T225731-0500",
+    "endTime" : "20141114T083358-0500",
+    "place" : {
+      "id" : 278254819,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 3.3646059183,
+        "lon" : -76.559999961
+      }
+    },
+    "lastUpdate" : "20141115T232932Z"
+  } ],
+  "lastUpdate" : "20141115T232932Z"
+}, {
+  "date" : "20141115",
+  "segments" : [ {
+    "type" : "place",
+    "startTime" : "20141115T164638-0500",
+    "endTime" : "20141115T171818-0500",
+    "place" : {
+      "id" : 278875633,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 3.4588660614,
+        "lon" : -76.5340806247
+      }
+    },
+    "lastUpdate" : "20141115T232932Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20141115T173210-0500",
+    "endTime" : "20141115T173431-0500",
+    "place" : {
+      "id" : 278899853,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 3.453822455,
+        "lon" : -76.5333439073
+      }
+    },
+    "lastUpdate" : "20141115T232932Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20141115T174203-0500",
+    "endTime" : "20141115T174536-0500",
+    "place" : {
+      "id" : 278899854,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 3.456077748,
+        "lon" : -76.5329031836
+      }
+    },
+    "lastUpdate" : "20141115T232932Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20141115T175331-0500",
+    "endTime" : "20141115T193149-0500",
+    "place" : {
+      "id" : 278899855,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 3.4591306137,
+        "lon" : -76.5339879059
+      }
+    },
+    "lastUpdate" : "20141116T022846Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20141115T193920-0500",
+    "endTime" : "20141115T210844-0500",
+    "place" : {
+      "id" : 278941821,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 3.4490418338,
+        "lon" : -76.5382486472
+      }
+    },
+    "lastUpdate" : "20141116T110108Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20141115T211635-0500",
+    "endTime" : "20141115T213325-0500",
+    "place" : {
+      "id" : 279240005,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 3.4482666058,
+        "lon" : -76.5410156315
+      }
+    },
+    "lastUpdate" : "20141117T002546Z"
+  } ],
+  "lastUpdate" : "20141117T002546Z"
+}, {
+  "date" : "20141116",
+  "segments" : [ {
+    "type" : "place",
+    "startTime" : "20141116T180907-0500",
+    "endTime" : "20141117T062350-0500",
+    "place" : {
+      "id" : 279240006,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 3.4499544248,
+        "lon" : -76.5396014218
+      }
+    },
+    "lastUpdate" : "20141117T123252Z"
+  } ],
+  "lastUpdate" : "20141117T123252Z"
+} ]
