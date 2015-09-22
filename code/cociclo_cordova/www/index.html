@@ -34,7 +34,150 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>CoCiclo</title>
+   
+     <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        
+        <script type="text/javascript" charset="utf-8">
+       
+        ///////////////////////////////////////////////////////////
+        // cordova plugin add cordova-plugin-file  
+        // cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-file.git
+        //
+        // cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-file-transfer.git
+        //
+        // cordova plugin add cordova-plugin-geolocation 
+        // cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-geolocation.git
+        //
+        // cordova plugin add com.bandoad.cordova.audiofrequency
+        // npm i cordova-plugin-pitch
+        // github.com/amitgur/cordova-plugin-pitch
+        ///////////////////////////////////////////////////////////
+        // Wait for device API libraries to load         
+        //                                             
+        document.addEventListener("deviceready", onDeviceReady, false);
+        
+        ///////////////////////////////////////////////////////////
+        // Déclaration de variables
+        var watchID = null;
+        //var d = new Date();
+        //var uneDate = d.getDate() + "-" +  d.getMonth() + "-" + d.getFullYear() + "-" + d.getHours() + "-" +  d.getMinutes() + "-" +               d.getSeconds();  
+        //var watchID = null;
+        //var nomFichier = 'Cociclo-' + uneDate + '.TXT';
+        //var nomFichier = "'" +nomFichier+"'";
+        // alert(nomFichier);
+        //var elatitude = 0;
+        //var elongitude = 0;
+        //var ealtitude = 0;          
+        //var eaccuracy = 0;
+        //var ealtitudeAccuracy = 0;
+        //var eheading = 0;
+        //var espeed = 0;
+        //var etimestamp = 0;
+      
+                            
+        // device APIs are available
+        //
+        function onDeviceReady() {
+             //alert("au moins ici!");
+            // Throw an error if no update is received every 30 seconds
+            var options = { timeout: 30000 };
+            watchID = navigator.geolocation.watchPosition(onSuccess, onError, options); 
+            window.addEventListener("audiofrequency", onAudiofrequency, false);
+            }
+            
+            
+        function onAudiofrequency(e) {
+            //console.log("Frequency: " + e.frequency + " Hz");
+            
+            var freq = document.getElementById('frequence');
+            freq.innerHTML = 'Frequence: ' + e.frequency + ' Hz';
+            //alert("Frequency: " + e.frequency + " Hz");
+            }    
+            
+        function onSuccess(position) {
+            //alert("Position success on se rend ici!");
+           
+            var element = document.getElementById('geolocation');
+            element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+                                'Longitude: ' + position.coords.longitude     + '<br />';
+          
+            nouveauTexte(); // Appel de fonction pour aller écrire les données dans le fichier texte pour le stockage
+            }
+            
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+            'message: ' + error.message + '\n');
+            }
+            
+            
+            function nouveauTexte(){
+                window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+                alert('hey');    
+            }
+           /* function nouvellePosition(){
+            alert("nouvellePosition");   
+            window.requestFileSystem(LocalFileSystem.PERSISTENT, 1024, gotFS, fail); 
+            }*/
+           
+       /* function gotFS(fileSystem) {
+            alert("FS!");
+            //fileSystem.root.getFile(nomFichierx/, {create: true, exclusive: false}, gotFileEntry, fail);
+            fileSystem.root.getFile('readme.txt', {create: true, exclusive: false}, gotFileEntry, fail);
+            }*/
+            
+            
+        function gotFS(fileSystem) {
+            fileSystem.root.getFile("readme.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+           alert('oui!');
+        }
+    
+
+            
+            function gotFileEntry(fileEntry) {
+        fileEntry.createWriter(gotFileWriter, fail);
+                alert('presque!');
+    }
+/*
+        function gotFileEntry(fileEntry) {
+            //alert("got file entry!");
+            fileEntry.createWriter(gotFileWriter, fail);
+            }*/
+    
+       /* function gotFileWriter(writer) {
+            alert("bin!");
+            writer.seek(writer.length); // ecrire à la fin du texte présent
+           
+            writer.Write("grand succes");
+            /*
+            writer.write(       'Latitude: '           + elatitude              + '<br />' +
+                                'Longitude: '          + elongitude             + '<br />' +
+                                'Altitude: '           + ealtitude              + '<br />' +
+                                'Accuracy: '           + eaccuracy              + '<br />' +
+                                'Altitude Accuracy: '  + ealtitudeAccuracy      + '<br />' +
+                                'Heading: '            + eheading               + '<br />' +
+                                'Speed: '              + espeed                 + '<br />' +
+                                'Timestamp: '          + etimestamp             + '<br />');
+       
+            alert('nouvelle ecriture'); 
+            }*/
+            
+        function gotFileWriter(writer) {
+        writer.seek(writer.length); // ecrire à la fin du texte présent
+        writer.write("TESTING 7 8 9");
+            alert('oui oui oui');
+        }
+    
+        function fail(error) {
+            //alert(error.code);
+            console.log(error.code);
+            }
+       
+            
+        </script>
     </head>
+   
+    
     <body>
         <div class="app">
             
@@ -48,57 +191,6 @@
                 
             </div>
         </div>
-        
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        
-        <script type="text/javascript" charset="utf-8">
-       
-            
-        // Wait for device API libraries to load
-        //
-        document.addEventListener("deviceready", onDeviceReady, false);
-
-        var watchID = null;
-                            
-          
-        // device APIs are available
-        //
-        function onDeviceReady() {
-            
-            // Throw an error if no update is received every 30 seconds
-            var options = { timeout: 30000 };
-            watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
-            
-            
-            window.addEventListener("audiofrequency", onAudiofrequency, false);
-
-            
-        }
-            
-            
-        function onAudiofrequency(e) {
-            //console.log("Frequency: " + e.frequency + " Hz");
-            
-            var freq = document.getElementById('frequence');
-            freq.innerHTML = 'Frequence: ' + e.frequency + ' Hz';
-            //alert("Frequency: " + e.frequency + " Hz");
-            }    
-            
-        function onSuccess(position) {
-            //alert("on se rend ici!");
-            var element = document.getElementById('geolocation');
-            element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-                                'Longitude: ' + position.coords.longitude     + '<br />';
-          
-        }
-            
-        function onError(error) {
-            alert('code: '    + error.code    + '\n' +
-            'message: ' + error.message + '\n');
-        }
-            
-        </script>
         
     </body>
 </html>
