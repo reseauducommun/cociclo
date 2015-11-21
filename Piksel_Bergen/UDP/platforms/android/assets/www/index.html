@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        
+        <title>Envoi par UDP</title>
+    </head>
+    <body>
+        
+    <div class="app">
+        
+        <div>
+            <p>UDP</p>
+            <p><br></p>
+            
+        </div>
+        
+        <div id="debut" style="display:block">	
+            <input id="IPAddress" type="url" size="12" value="192.168.0.145" class="rounded" /> 
+            <input id="ouibutton" type="submit" size="7" value="Ouvrir" class="gobutton" />  
+          <!--  <input id="gobutton" type="submit" size="7" value="Ouvrir" onclick="connexion();">  -->
+        </div>
+        
+        <div id="connecte" style="display:none">
+            <input id="IPAddress" type="url" size="12" value="esp8266" style="background-color:#4dbf52" class="rounded" /> 
+            <input id="nobutton" type="submit" size="7" value="Fermer" style="background-color:#e05a5a" class="gobutton" />  
+          <!--   <input id="nobutton" type="submit" size="7" value="Fermer" style="background-color:#e05a5a" onclick="deconnecte();"> --> 
+        </div>
+        
+        <div id="connectingView" style="display:none">
+            <div id="connectingIndicator">
+			<!--<img src="img/loader.gif">-->
+			<p id="connectingStatus"></p>
+            </div>	
+	   </div>
+ 
+	   <div id="controle" style="display:none">
+            <p><br></p>
+            <input id="UDP" type="submit" value="UDP" class="round" />
+            <input id="horloge" type="submit" value="Tic" onclick="round" />
+            <!--<input id="round" type="submit" value="UDP" onclick="UDP();" />-->
+            <!--<input id="round" type="submit" value="Tic" onclick="horloge();" />-->
+             <p><br></p>
+             <p>CO Levels :</p>
+           <p id="contaminacion"> </p>
+               <p><br></p>
+            <canvas id="monCanvas" width="300" height="90" style="border:1px solid #4949bf;">
+            Your browser does not support the HTML5 canvas tag.
+            </canvas>
+           </div>
+         
+             
+        </div>
+           
+    </div>
+        
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+    </body>
+</html>

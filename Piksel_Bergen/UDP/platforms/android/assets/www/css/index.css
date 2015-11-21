@@ -1,0 +1,234 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+
+    background-image: url("../img/submerge.png");
+    background-repeat: no-repeat;
+    
+    background-color:#f0eaea;
+    /*background-color:#E4E4E4;*/
+    
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+
+.app {
+    position:relative;             /* position in the center of the screen */
+    left:center;
+    top:center;
+    text-align:center;
+    padding:100px 0px 0px 0px;    /* image height is 200px (bottom 20px are overlapped with text) */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+       padding:50px 0px 0px 0px;  /* padding-top + padding-bottom + text area = image height */
+    }
+}
+
+p {
+    font-size:1.5em;
+    color: #f2f2f2;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#connectingView {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	display: table;
+	text-align: center;
+}
+
+#connectingIndicator {
+	width:20%;
+	display: table-cell;
+	vertical-align: middle;
+	border: solid 1px;
+	background-color: #ffffff;
+}
+
+
+.circleBase {
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	border: 1px solid black;
+	margin: 2px;
+}
+
+.ledOff {
+	background: #C7C7C7;
+}
+
+.ledOn {
+	background: #00FF00;
+}
+
+p.center {
+	text-align: center;
+}
+
+
+/***FIRST STYLE THE BUTTON***/
+input.gobutton{
+cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
+padding:5px 5px; /*add some padding to the inside of the button*/
+background:#35b128; /*the colour of the button*/
+border:1px solid #33842a; /*required or the default border for the browser will appear*/
+/*give the button curved corners, alter the size as required*/
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+/*give the button a drop shadow*/
+-webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+box-shadow: 0 0 4px rgba(0,0,0, .75);
+/*style the text*/
+color:#f3f3f3;
+font-size:1.6em;    
+/* pour le gradient affreux de ios*/
+-webkit-appearance: none; 
+/*border-radius: 0;*/
+}
+/***NOW STYLE THE BUTTON'S HOVER AND FOCUS STATES***/
+input.gobutton:hover, input.gobutton:focus{
+background-color :#67c65e; /*make the background a little darker*/
+/*reduce the drop shadow size to give a pushed button effect*/
+-webkit-box-shadow: 0 0 1px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
+box-shadow: 0 0 1px rgba(0,0,0, .75);
+ /* pour le gradient affreux de ios*/
+-webkit-appearance: none;    
+}
+
+
+input.round{
+width:50px; /*same as the height*/
+height:50px; /*same as the width*/
+background-color:#4022e3;
+border:1px solid #0f093c; /*same colour as the background*/
+color:#FFF;
+font-size:1em;
+/*set the border-radius at half the size of the width and height*/
+-webkit-border-radius: 25px;
+-moz-border-radius: 25px;
+border-radius: 25px;
+/*give the button a small drop shadow*/
+-webkit-box-shadow: 0 0 8px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 8px rgba(0,0,0, .75);
+box-shadow: 2px 2px 13px rgba(0,0,0, .75);
+/* pour le gradient affreux de ios */
+-webkit-appearance: none;  
+}
+/***NOW STYLE THE BUTTON'S HOVER STATE***/
+input.round:hover{
+background:#606cff;
+border:1px solid #5953fa;
+/*reduce the size of the shadow to give a pushed effect*/
+-webkit-box-shadow: 0px 0px 4px rgba(0,0,0, .75);
+-moz-box-shadow: 0px 0px 4px rgba(0,0,0, .75);
+box-shadow: 0px 0px 4px rgba(0,0,0, .75);    
+/* pour le gradient affreux de ios*/
+-webkit-appearance: none;  
+}
+
+input.rounded {
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+    font-size: 1.6em;
+    padding: 4px 7px;
+    outline: 0;
+    -webkit-appearance: none;
+}
+
+input.rounded:focus {
+    border-color: #339933;
+}
