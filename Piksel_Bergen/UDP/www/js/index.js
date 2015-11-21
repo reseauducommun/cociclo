@@ -111,7 +111,7 @@ function UDP(){
 				alert('Failed to send data')
 			}
         });
-    alert('envoi reussi');
+    ///alert('envoi reussi');
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////
