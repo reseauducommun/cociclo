@@ -1,4 +1,2 @@
 # cociclo
-A Carbon Monoxyde (CO) sensor circuit based on the ATMEGA16 (Arduino) using the audio input of you mobile as a sensor interface
-
-!! Attention ceci est une version beta qui contient des erreurs dans le schéma fritzing.  On peut les corriger sur la plaquette et je travaille à une nouvelle version réalisée avec Eagle.  Seule la vue du schéma de Fritzing est importante.
+A Carbon Monoxyde (CO) sensor circuit based on the esp8366 Huzzah that sends data through UDP to your mobile and let's you upload the data on a map.
