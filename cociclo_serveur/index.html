@@ -1,0 +1,257 @@
+<html>
+<head>
+<!-/////////////////////////////////////////////////////////////////////////////////
+//      Copyright (C) 2015  Alexandre Castonguay y Andrei Iván Guevara Nieves
+//              
+//    
+//                      acastonguay@artengine.ca
+//    
+//      The JavaScript code in this page is free software: you can
+//      redistribute it and/or modify it under the terms of the GNU
+//      General Public License (GNU GPL) as published by the Free Software
+//      Foundation, either version 3 of the License, or (at your option)
+//      any later version.  The code is distributed WITHOUT ANY WARRANTY;
+//      without even the implied warranty of MERCHANTABILITY or FITNESS
+//      FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+//
+//      As additional permission under GNU GPL version 3 section 7, you
+//      may distribute non-source (e.g., minimized or compacted) forms of
+//      that code without the copy of the GNU GPL normally required by
+//      section 4, provided you include this license notice and a URL
+//      through which recipients can access the Corresponding Source.
+//
+///////////////////////////////////////////////////////////////////////////////-->
+<title>
+
+Carte Cociclo    
+</title> 
+    
+<link rel="stylesheet" type="text/css" href="carte.css">
+<link rel="icon" type="image/png" href="http://artengine.ca/acastonguay/cociclo/images/icon.png">
+
+<!--<script src="http://maps.googleapis.com/maps/api/js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script> 
+<script>
+    jQuery(document).ready(function () {
+    var map;
+    var coords = []; // j'essaie de déclarer un tableau qui sera rempli après l'ouverture du fichier de données
+
+    // from https://developers.google.com/maps/documentation/javascript/examples/maptype-styled-complex
+    var style = [
+		{
+		stylers: [
+			{ saturation: "-50" },
+			{ lightness: "10" }
+		]
+		},{
+		featureType: "poi",
+		stylers: [
+			{ visibility: "off" }
+		]
+		},{
+		featureType: "transit",
+		stylers: [
+			{ visibility: "off" }
+		]
+		},{
+		featureType: "road",
+		stylers: [
+			{ lightness: "50" },
+			{ visibility: "on" }
+		]
+		},{
+		featureType: "landscape",
+		stylers: [
+			{ lightness: "50" }
+		]
+		}
+	]
+        
+    /////////////////////////////////////////////////////////////////////////////////////
+    //                  Appel de fonction php avec javascript par AJAX                 //
+    //                  Asynchronous Javascript and XML                                //
+    //                  de : https://www.youtube.com/watch?v=4mmKUITxVxA               //
+    /////////////////////////////////////////////////////////////////////////////////////
+   
+    $(function (){
+        $.ajax({
+            url: 'lecture.php',
+            datatype: 'json',
+            success: function(data)
+            {
+                $('#maListe').html(data);
+            } ,
+            error: function()
+            {
+                $('#maliste').html("Erreur");
+            }
+        });
+    });
+             
+    //////////////////////////////////////////////////////////////////////////////////////
+    //                          2e appel a un script                                    //
+    //////////////////////////////////////////////////////////////////////////////////////
+        
+    function lesDonnees(a){
+        $.ajax({
+            url: 'losdatos.php?fichier='+a, // le script essai de passer une variable
+            datatype: 'json',               // bon format
+            success: function(data)         // ce que nous recevons si ca marche
+            {
+                //alert('on passe : ' +a);
+                // alert(data);
+                // alert('contenu : '+data);
+                var chop = data.split(","); // splits the string in an array
+                // var chop = data.split(","); // splits the string in an array por D.F.
+                mapUpdate(chop); // faire la mise à jour du trajet selon le fichier choisi :-)!               
+            },
+            error: function()
+            {
+                alert('error');
+            }
+        });  
+    }   
+    
+    /////////////////////////////////////////////////////////////////////////////////
+    //                         Affichage initial de la carte                       //
+    /////////////////////////////////////////////////////////////////////////////////
+        
+    var options = {
+        zoom: 18,
+        center:  new google.maps.LatLng(43.677761,4.6291018), // coordonnées initiales Arles
+   	// center:  new google.maps.LatLng(19.4521735,-99.1567356), // coordonnées initiales D.F.       
+
+ mapTypeId: google.maps.MapTypeId.SATELLITE,
+        // mapTypeId: google.maps.MapTypeId.ROADMAP,
+        disableDefaultUI: true   
+    };
+    
+    map = new google.maps.Map($('#map')[0], options);
+    map.setOptions({
+        styles: style   
+    });
+    
+    /////////////////////////////////////////////////////////////////////////////////
+    //                           Affichage du trajet choisi                        // 
+    /////////////////////////////////////////////////////////////////////////////////
+    // http://stackoverflow.com/questions/23826910/google-maps-polyline-with-coordinates-from-database-not-working-in-all-browsers 
+    
+    var flightPlanCoordinates;  
+        
+    function mapUpdate(a) {
+        
+        var coords = a;
+        // Format du fichier des coordonnées : 
+        // [[timestamp],[latitude],[longitude],[altitude],[frequence]]
+        for (i=0;i<(coords.length-1);i=i+5) 
+                {
+                    var long =  i+1;
+                    var lat = i+2; // reverse for early data from D.F.
+                    var freq = i+4;
+                     
+                }
+    
+        flightPlanCoordinates = []; //new Array();        // declare un array pour tous les points
+        // takes the latitude and longitude information from latlngdata and creates points to be pushed onto the array
+        
+        for(i=0;i < coords.length-2;i=i+5) {
+            var long =  i+1;
+            var lat = i+2;
+            var freq = i+4;
+            var point =new google.maps.LatLng(coords[lat],coords[long],coords[freq]);
+            console.log("premier : "+point);
+            var repetition = coords[freq];
+            
+            // la frecuencia va a se cambiar de 0 Hz en la 666 Hz
+            // desde 0 hasta 100 == 0
+            // desde 100 hasta 666 ...  1 a 10
+            // necesito valores de 0 a 10 
+            //////////////////////////////////////////////////////////////////////////
+            //   Ensayo para filtrar los datos de 0 a 100 Hz (errores de lectura)   //
+            //////////////////////////////////////////////////////////////////////////
+            if(repetition<40){
+            // if(repetition<110){
+            repetition=0;
+            }
+            else {
+            repetition=Math.round(repetition/10);
+            // repetition=Math.round(repetition/50);
+            }
+            //alert("repetition : "+repetition);
+    
+            for(j=0; j<=repetition; j++)
+                console.log("deuxieme : "+point);
+                flightPlanCoordinates.push(point);
+           // console.log(flightPlanCoordinates.push(point));
+            }
+        
+        
+        var heatmap = new google.maps.visualization.HeatmapLayer({   
+    
+        data: flightPlanCoordinates,
+        radius: 30,
+        opacity: 0.5,
+        map: map
+        });
+
+        
+    //heatmap.setMap(map);  //affiche le trajet
+        
+    
+    }
+      
+      
+ 
+        
+    function getPoints() {
+        
+    
+        
+        return [
+            new google.maps.LatLng(45.515, -73.563, 10),
+            //new google.maps.LatLng(coords[lat],coords[long],coords[freq]);
+            //new google.maps.LatLng(45.5165, -73.562, 0.5),
+            //new google.maps.LatLng(45.516, -73.564, 3),
+            //new google.maps.LatLng(45.5175, -73.565, 1.5),
+            new google.maps.LatLng(45.518, -73.566, 1),
+            //new google.maps.LatLng(45.5175, -73.569, 0.5),
+            //new google.maps.LatLng(45.5165, -73.5666, 2.5),
+            new google.maps.LatLng(45.5175, -73.5665    , 5)
+                ];
+                
+        }
+        
+       
+    //////////////////////////////////////////////////////////////////////////////////////
+    //                      On écoute les changements de la liste                       //
+    //////////////////////////////////////////////////////////////////////////////////////
+  
+        document.getElementById("maListe").onchange = function() {
+            if (this.selectedIndex !== 0) {
+            //alert(this.value);
+            lesDonnees(this.value); // passe le nom du fichier à la fonction lesDonnees
+            }
+        }     
+
+}); // fin de la fonction ready jQuery
+       
+    </script> 
+    
+    </head>
+    <body>
+        <div id="map"></div>
+
+        <div id="menu"> 
+        <img src="images/logo.png" height="26" width="115"><br><p></p>
+        <div id="output">
+        <form><select id="maListe"> <!-- les valeurs qui emanent de lecture.php sont affichées ici -->   
+            </select></form>            
+            </div> <!--<input type="file" value="camino" id="fileinput" />  seulement si on veut pouvoir envoyer de nouveaux                  fichiers par ici-->
+            <p id="datos"></p><br>
+            <p id="contenus"></p>
+       </div>
+        
+    
+    </body>
+</html>

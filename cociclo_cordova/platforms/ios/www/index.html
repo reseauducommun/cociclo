@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        
+        <title>Cociclo</title>
+    </head>
+    <body>
+        
+    <div class="app">
+
+        <div id="debut" style="display:block">	
+            <input id="IPAddress" type="url" size="12" value="192.168.43.235" class="rounded" /> 
+            <input id="ouibutton" type="submit" size="7" value="Ouvrir" class="gobutton" />  
+        </div>
+        
+        <div id="connecte" style="display:none">
+            <input id="IPAddress" type="url" size="12" value="esp8266" style="background-color:rgba(223, 230, 223, 0.7)" class="rounded" /> 
+            <input id="nobutton" type="submit" size="7" value="Fermer" style="background-color:rgba(224, 90, 90, 0.79)" class="gobutton" />  
+        </div>
+ 
+        <div id="lectureCO" style="display:none">
+            <input id="horloge" type="submit" value="CO" class="round" />
+        </div>
+        
+        <div id="arretCO" style="display:none">
+            <input id="toc" type="submit" value="stop" style="background-color:#e05a5a" class="round" />
+        </div>
+        
+	    <div id="controle" style="display:none">
+            
+        <!-- <p>CO Levels :</p>
+          <p id="contaminacion"> </p>-->
+            
+            <canvas id="monCanvas" width="256" height="230" style="padding:40px 0px 0px 0px border:1px solid #e05a5a;">
+            Your browser does not support the HTML5 canvas tag.
+            </canvas>
+           
+          <!--  <p class="txt" id="geolocation" >
+                Latitude:         <br />
+                Longitude:        <br />
+                Altitude:         <br />
+                Accuracy:         <br />
+                Altitude Accuracy:  <br />
+                Heading:          <br />
+                Speed:            <br />
+                Timestamp:        <br />
+            </p>-->
+                
+            <!--<input id="UDP" type="submit" value="UDP" class="round" />-->
+      
+        </div>  
+        
+        <div id="ecriture" style="display:none">
+        <p><br></p>
+            <input id="ecrit" type="submit" value="ecrit" class="round" />
+           <!-- <input id="envoi" type="submit" value="envoi" class="round" />-->    
+            
+        </div>
+             
+    </div>
+        
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+    </body>
+</html>
