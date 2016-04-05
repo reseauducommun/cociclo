@@ -1,0 +1,26 @@
+body { 
+    font: 12px Arial;
+    background-color:black;
+    fill:grey; 
+    color:grey;
+}
+
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+#utilisateur {
+	font: 18px Arial;
+        color:white;
+}
+
