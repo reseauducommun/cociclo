@@ -12,19 +12,25 @@ if($connection == false) {
     // Handle error - notify administrator, log to a file, show an error screen, etc.
 echo "argh";
 }
-
-
 $value_ID = "";
 //echo $value_ID;
 //$value_Date =  $_GET["Date"];
 $value_Date = new DateTime();
 $value_Date =  $value_Date->format('Y-m-d H:i:s');
+$value_MAC = "";
+//$value_MAC = $_GET["MAC_char"];
 $value_CO = "";
+$value_maxCO = "";
+//$value_maxCO = $_GET["MCO"];
 $value_Temp = "";
 $value_Hum = "";
 $value_Latitude = "";
 $value_Longitude = "";
 
+ if (isset($_GET["MAC_char"])) 
+ {
+  $value_MAC = $_GET["MAC_char"];  
+ }
  if (isset($_GET["ID"])) 
  {
   $value_ID = $_GET["ID"];  
@@ -32,6 +38,10 @@ $value_Longitude = "";
   if (isset($_GET["CO"])) 
  {
   $value_CO = $_GET["CO"];  
+ }
+  if (isset($_GET["MCO"])) 
+ {
+  $value_maxCO = $_GET["MCO"];  
  }
   if (isset($_GET["t"])) 
  {
@@ -53,11 +63,12 @@ $value_Longitude = "";
   $paramValides=false;
  //vérifier que chaque variable possède une valeur
  //sinon l'insertion est annulée
- if( ($value_ID!="")&&($value_CO!="")&&($value_Temp!="")&&($value_Hum!="")&&($value_Latitude!="")&&($value_Longitude!="") )
+ if( 
+($value_ID!="")&&($value_MAC!="")&&($value_CO!="")&&($value_maxCO!="")&&($value_Temp!="")&&($value_Hum!="")&&($value_Latitude!="")&&($value_Longitude!="") 
+)
  {
    $paramValides=true;  
  }
-
  //validation contre injection sql
  //vérifier chaque variable selon son type de donnée
  if ((!is_numeric($value_ID))&&(!is_numeric($value_CO)))
@@ -68,8 +79,8 @@ $value_Longitude = "";
  
 if ($paramValides==true)
 {
-    $sql = "INSERT INTO Cociclo (ID, Date, CO, t, h, La, Lo)
-    VALUES ('$value_ID', '$value_Date', '$value_CO', '$value_Temp', '$value_Hum', '$value_Latitude', '$value_Longitude')";
+    $sql = "INSERT INTO Cociclo (MAC_char,ID, Date, CO, MCO, t, h, La, Lo)
+    VALUES ('$value_MAC','$value_ID', '$value_Date', '$value_CO', '$value_maxCO', '$value_Temp', '$value_Hum', '$value_Latitude', '$value_Longitude')";
     //VALUES ('test', '2016-03-23 00:59:42', '127', '5', '70')";
     if ($connection->query($sql) == TRUE) {
         echo "funciona";
@@ -79,7 +90,7 @@ if ($paramValides==true)
     }
    
 } else {
-        echo "Error: opration annulee , donnees non valides.<br>" 
+        echo "Error: opration annulee , donnees non valides.<br>"; 
     }
  $connection->close();
 ?>
