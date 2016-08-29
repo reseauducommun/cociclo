@@ -79,9 +79,17 @@ $value_Longitude = "";
  
 if ($paramValides==true)
 {
-    $sql = "INSERT INTO Cociclo (MAC_char,ID, Date, CO, MCO, t, h, La, Lo)
+	if(mysql_num_rows(mysql_query("SHOW TABLES LIKE '".$value_ID."'"))==1) {
+	}
+	else {
+	$sql1 = "CREATE TABLE cociclo.".$value_ID." LIKE test.alx1";
+		if ($connection->query($sql1) == TRUE) {
+        echo "table cree";
+		}
+	}
+	$ntable=$value_ID;
+    $sql = "INSERT INTO ".$ntable." (MAC_char,ID, Date, CO, MCO, t, h, La, Lo)
     VALUES ('$value_MAC','$value_ID', '$value_Date', '$value_CO', '$value_maxCO', '$value_Temp', '$value_Hum', '$value_Latitude', '$value_Longitude')";
-    //VALUES ('test', '2016-03-23 00:59:42', '127', '5', '70')";
     if ($connection->query($sql) == TRUE) {
         echo "funciona";
         echo $value_Longitude;
