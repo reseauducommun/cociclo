@@ -19,17 +19,11 @@
 DHT dht(DHTPIN, DHTTYPE);
 ///////////////////////////////////////////////////////////////////////////////
 
-////// 
- // int lapause = 366600; // 6 minutes, 6 secondes et 6 millièmes de seconde de pause 
- //// int lapause (18 minutes) !!!
- //// 
- //// 
-///// connection au serveur
-///// réchauffement
-/////
+//////  warm up du capteur ////////
+// int lapause = 366600; // 6 minutes, 6 secondes et 6 millièmes de seconde de pause 
 
-///int lapause =  1380000;  // 23 minutes x 60 secondes x 1000 millièmes de secondes = 1 380 000) nécessaire pour tous les modèles de capteurs afin d'éviter les fausses lectures.
-int lapause = 0;   
+int lapause =  1380000;  // 23 minutes x 60 secondes x 1000 millièmes de secondes = 1 380 000) nécessaire pour tous les modèles de capteurs afin d'éviter les fausses lectures.
+//int lapause = 0;   // pour tester rapidement
 
 const char* host = "www.cociclo.io"; // le serveur qui reçoit les données
 
@@ -38,14 +32,12 @@ char ID[30] = "";  /// un tableau de 30 caractères, valeur de cociclo par défa
 char latitude[12] = "";
 char longitude[12] = "";
 
-
-
 //////////////// Pour obtenir l'adresse MAC ///////////
 
 uint8_t MAC_array[6];  
 char MAC_char[18];
 
-//////////// Pour le calcul du maximmum et des  moyennes de CO /////
+//////////// Pour le calcul du maximmum et des moyennes de CO /////
 
 float moyCO;
 float maxCO;
@@ -70,7 +62,7 @@ void saveConfigCallback () {
 
 #define PIN            D2
 
-#define NUMPIXELS      1
+#define NUMPIXELS      1  /// 4
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
@@ -173,6 +165,27 @@ WiFi.macAddress(MAC_array);
    delay(1000);
      pixels.setPixelColor(0, pixels.Color(10,10,150)); // azul
    pixels.show(); // This sends the updated pixel color to the hardware.
+
+delay(1000);
+/*
+   pixels.setPixelColor(1, pixels.Color(150,10,150)); // azul
+   pixels.show(); // This sends the updated pixel color to the hardware.
+
+  
+delay(1000); 
+
+  pixels.setPixelColor(2, pixels.Color(150,150,10)); // azul
+   pixels.show(); // This sends the updated pixel color to the hardware.
+
+  
+delay(1000);
+
+ pixels.setPixelColor(3, pixels.Color(100,50,150)); // azul
+   pixels.show(); // This sends the updated pixel color to the hardware.
+
+  
+delay(1000);
+*/
 //////////////
    
   //reset settings - for testing
@@ -203,7 +216,7 @@ WiFi.macAddress(MAC_array);
 
 
   //if you get here you have connected to the WiFi
-  Serial.println("connected...yeey :)");
+  Serial.println("connected...bravo!! :)");
 
  /////////////////////////////////////////////////////
  ////// Feedback neopixel, devrait changer à vert ////
@@ -277,7 +290,7 @@ void loop() {
 
  while(reponse==42) {  ///// autrement dit toujours
     
-    delay(5815);  // pour arriver à un délai de 60 secondes
+    delay(5815);  // pour arriver à un délai de 6 secondes
   ++value;
 
  ////////////////// Lecture du MQ-7 //////////////////
@@ -318,7 +331,7 @@ if (CO<45)
 
  ///////////////////////// Envoi au serveur ////////////////////
 
-  if(i >= lectures){ /// après 5 lectures envoyer au serveur
+  if(i >= lectures){ /// après 100 lectures envoyer au serveur
 
   
 
@@ -418,28 +431,7 @@ if (CO<45)
   pixels.show(); // This sends the updated pixel color to the hardware.
   delay(delayval); // Delay for a period of time (in milliseconds).
   
- /* 
-if (CO<55)
-   {  
-    Serial.println("verde");
-    pixels.setPixelColor(0, pixels.Color(0,120,0)); // Moderately bright green color.
-     pixels.show(); // This sends the updated pixel color to the hardware.
-   }
-   else if (CO>=55 && CO <= 150) {
-     Serial.println("amarillo");
-     pixels.setPixelColor(0, pixels.Color(170,170,0)); // Moderately bright green color.
-       pixels.show(); // This sends the updated pixel color to the hardware.
-    }
 
-    else  {
-  Serial.println("rojo");
-     pixels.setPixelColor(0, pixels.Color(170,20,0)); // Moderately bright green color.
-       pixels.show(); // This sends the updated pixel color to the hardware.
-
-   
-    }
-
-*/
   i= 0;  /// remise à zéro du compteur
   totalCO = 0; //// remise à zéro du total 
   maxCO = 0;  /// remise du max à zéro
