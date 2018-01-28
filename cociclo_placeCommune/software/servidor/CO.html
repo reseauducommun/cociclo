@@ -31,9 +31,12 @@ path {
     
 </head>
 <body>
+<<<<<<< HEAD
     
 <img src="images/cociclo_logo_petit.png" height="30" width="115">
     
+=======
+>>>>>>> origin/master
 
 <!-- load the d3.js library -->    
 <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -76,6 +79,7 @@ var svg = d3.select("body")
               "translate(" + margin.left + "," + margin.top + ")");
 
 // Get the data
+<<<<<<< HEAD
 
 d3.json("php/conversion.php", function(error, data) {
     data.forEach(function(d) {
@@ -87,16 +91,25 @@ d3.json("php/conversion.php", function(error, data) {
 
 /*
 
+=======
+>>>>>>> origin/master
 d3.json("data.json", function(error, data) {
     data.forEach(function(d) {
       
         d.Date = parseDate(d.Date);
         d.CO = +d.CO;
+<<<<<<< HEAD
 ////////        console.log(d.Date + ", " + d.CO);
         
     });
 
 */
+=======
+        console.log(d.Date + ", " + d.CO);
+        
+    });
+
+>>>>>>> origin/master
     // Scale the range of the data
     x.domain(d3.extent(data, function(d) { return d.Date; }));
     y.domain([0, d3.max(data, function(d) { return d.CO; })]);
@@ -118,7 +131,11 @@ d3.json("data.json", function(error, data) {
         .call(yAxis);
 
     
+<<<<<<< HEAD
     /////// text labels ////// Add the text label for the x axis
+=======
+    /////// texte labels ////// Add the text label for the x axis
+>>>>>>> origin/master
     
     svg.append("text")
         .attr("transform", "translate(" + (width / 2) + " ," + (height + margin.bottom) + ")")
