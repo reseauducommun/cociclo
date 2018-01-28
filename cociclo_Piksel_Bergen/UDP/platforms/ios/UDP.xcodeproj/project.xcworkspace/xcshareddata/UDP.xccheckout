@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E08D5546-841D-4DFF-9A9D-9CB0BD5FB869</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>520D202A845CD3036FC7C78046E89AC5DCD39278</key>
+		<string>https://github.com/alx-1/cociclo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>cociclo_Piksel_Bergen/UDP/platforms/ios/UDP.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>520D202A845CD3036FC7C78046E89AC5DCD39278</key>
+		<string>../../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/alx-1/cociclo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>520D202A845CD3036FC7C78046E89AC5DCD39278</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>520D202A845CD3036FC7C78046E89AC5DCD39278</string>
+			<key>IDESourceControlWCCName</key>
+			<string>coci%CC%81clo</string>
+		</dict>
+	</array>
+</dict>
+</plist>

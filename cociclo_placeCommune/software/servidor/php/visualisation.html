@@ -1,0 +1,44 @@
+<html>
+<head>
+     <meta charset="utf-8">
+    <title>sélection des cociclos</title>
+    
+    
+    <script src="../librairies/d3/d3.min.js" charset="utf-8"></script>
+<script>
+    
+    /////////////////////////////////////////////////////////////////////////////////////
+    //                  Appel de fonction php avec javascript par AJAX                 //
+    //                  Asynchronous Javascript and XML                                //
+    //                  de : https://www.youtube.com/watch?v=4mmKUITxVxA               //
+    /////////////////////////////////////////////////////////////////////////////////////
+         
+    $(function (){
+        $.ajax({
+            url: 'id_select.php',
+            datatype: 'json',
+            success: function(data)
+            {
+                $('#maListe').html(data);
+            } ,
+            error: function()
+            {
+                $('#maliste').html("Erreur");
+            }
+        });
+    });
+
+</script>
+
+</head>
+
+
+<body>
+    <script>
+</script> 
+
+
+test d'affichage de la liste des identités dans une base de données
+       
+    </body>
+</html>

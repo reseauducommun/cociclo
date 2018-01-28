@@ -1,0 +1,36 @@
+<html>
+<head> <title>
+    
+    D3
+    
+    </title>
+    
+    <script src="../../librairies/d3/d3.min.js" charset="utf-8"></script>
+    
+    </head>
+    
+    <body>
+    <svg width="200" height="300">
+        <g transform="translate(50 50)">  
+        <rect x="50" y="50" width="100" height="200" fill="rgba(0,255,0,0.5)" stroke="black"></rect>
+        <rect x="75" y="75" width="100" height="200" fill="rgba(255,255,0,0.5)" stroke="black"></rect>
+        <text>hello svg</text>
+        <path d="M50 50 L100 100" stroke="black"></path>
+            
+            </g>
+        
+        </svg>
+        
+        <script>
+        
+        d3.csv("data.csv", function (monArray) {
+            
+            monArray.forEach(function(d){
+                console.log(d.x + "," +d.y)
+            })
+        })
+        </script>
+    </body>
+
+
+</html>
