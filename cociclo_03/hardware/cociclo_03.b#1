@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.6.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
-<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="1" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="0.0005" altunitdist="inch" altunit="mm"/>
@@ -18416,13 +18415,11 @@
 <text x="36.0629125" y="37.185596875" size="0.9144" layer="191" ratio="14" distance="46" rot="MR0">D0</text>
 <text x="36.047675" y="40.56379375" size="0.9144" layer="191" ratio="14" distance="46" rot="MR0">A0</text>
 <text x="36.078159375" y="19.624034375" size="0.9144" layer="191" ratio="14" distance="46" rot="MR0">D3</text>
+<wire x1="0.3302" y1="43.6118" x2="41.7322" y2="43.6118" width="0.4064" layer="20"/>
+<wire x1="41.7322" y1="43.6118" x2="41.7322" y2="0.3302" width="0.4064" layer="20"/>
+<wire x1="41.7322" y1="0.3302" x2="0.3302" y2="0.3556" width="0.4064" layer="20"/>
+<wire x1="0.3302" y1="0.3556" x2="0.3302" y2="43.688" width="0.4064" layer="20"/>
 <text x="20.746715625" y="26.45155625" size="0.9144" layer="191" ratio="14" distance="46" rot="MR0">SPK</text>
-<wire x1="-0.254" y1="43.8658" x2="-0.254" y2="43.7642" width="0.1524" layer="20"/>
-<wire x1="-0.254" y1="43.7642" x2="-0.254" y2="0.0762" width="0.1524" layer="20"/>
-<wire x1="-0.254" y1="0.0762" x2="-0.1778" y2="0" width="0.1524" layer="20"/>
-<wire x1="-0.1778" y1="0" x2="41.9608" y2="0" width="0.1524" layer="20"/>
-<wire x1="41.9608" y1="0" x2="41.9608" y2="43.7642" width="0.1524" layer="20"/>
-<wire x1="41.9608" y1="43.7642" x2="-0.254" y2="43.7642" width="0.1524" layer="20"/>
 </plain>
 <libraries>
 <library name="SparkFun-Connectors">
@@ -18867,11 +18864,10 @@ einem neuen Namen ab.</description>
 <param name="slThermalsForVias" value="0"/>
 <param name="dpMaxLengthDifference" value="10mm"/>
 <param name="dpGapFactor" value="2.5"/>
+<param name="checkGrid" value="0"/>
 <param name="checkAngle" value="1"/>
 <param name="checkFont" value="1"/>
 <param name="checkRestrict" value="1"/>
-<param name="checkStop" value="0"/>
-<param name="checkValues" value="0"/>
 <param name="useDiameter" value="13"/>
 <param name="maxErrors" value="50"/>
 </designrules>
@@ -18975,8 +18971,8 @@ einem neuen Namen ab.</description>
 <attribute name="NAME" x="31.1686" y="4.7244" size="0.8128" layer="25" font="vector" rot="R270" align="bottom-center"/>
 </element>
 <element name="SWITCH" library="SparkFun-Electromechanical" package="SWITCH-SPDT_KIT" value="" x="7.366" y="3.8608" smashed="yes" rot="R270">
-<attribute name="NAME" x="14.0716" y="6.1722" size="0.8128" layer="25" ratio="10" rot="R270"/>
 <attribute name="PROD_ID" value="SWCH-08261" x="7.366" y="3.8608" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="14.0716" y="6.1722" size="0.8128" layer="25" ratio="10" rot="R270"/>
 <attribute name="VALUE" x="-2.159" y="7.6708" size="1.778" layer="27" ratio="10" rot="R270"/>
 </element>
 </elements>
@@ -19016,10 +19012,10 @@ einem neuen Namen ab.</description>
 <vertex x="41.7474375" y="0.2692375"/>
 </polygon>
 <polygon width="0.1524" layer="1">
-<vertex x="0.142240625" y="0.3048"/>
-<vertex x="0.07111875" y="43.58131875"/>
-<vertex x="41.93031875" y="43.489878125"/>
-<vertex x="41.589959375" y="0.17271875"/>
+<vertex x="0.040640625" y="0.3048"/>
+<vertex x="-0.03048125" y="43.58131875"/>
+<vertex x="41.95571875" y="43.718478125"/>
+<vertex x="41.615359375" y="0.40131875"/>
 </polygon>
 <wire x1="25.432" y1="2.0846" x2="24.2364" y2="0.889" width="0.6096" layer="1" curve="-90"/>
 <wire x1="24.2364" y1="0.889" x2="7.62" y2="0.889" width="0.6096" layer="1"/>
