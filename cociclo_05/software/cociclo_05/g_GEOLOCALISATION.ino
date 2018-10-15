@@ -82,7 +82,7 @@ void geolocalisation() {
 
   //Connect to the client and make the api call
   Serial.print("Requesting URL: ");
-  Serial.println("https://" + (String)Host + thisPage + "AIzaSyCYNXIYINPmTNIdusMjJloS4_BXSOff1_g");
+  Serial.println("https://" + (String)Host + thisPage + "your key");
   Serial.println(" ");
   if (client.connect(Host, 443)) {
     Serial.println("Connected");
