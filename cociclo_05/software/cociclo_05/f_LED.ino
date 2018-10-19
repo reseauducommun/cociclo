@@ -1,26 +1,22 @@
+ 
  int ledIndicator(int x){
 
 ////////// pas de connection au serveur ///////
   if (x==0) {
- Serial.println("indication : pas de serveur ");
-  pixels.setPixelColor(0, pixels.Color(10,10,255)); // azul
-  pixels.show(); // This sends the updated pixel color to the hardware.
+  Serial.println("indication : pas de serveur ");
+  strip.setBrightness(127); 
+  strip.setPixelColor(0, color0); // blanco
+  strip.show(); 
   delay(1000);
   }
 
   else if (x==1) {  /// Tenemos una connexión al servidor
    
-   for(int i=0;i<NUMPIXELS;i++){
-
-    // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
-    pixels.setPixelColor(i, pixels.Color(0,60,123)); // Moderately bright green color.
-    pixels.show(); // This sends the updated pixel color to the hardware.
-    delay(delayval); // Delay for a period of time (in milliseconds).
-    // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
-    pixels.setPixelColor(i, pixels.Color(60,60,0)); // Moderately bright green color.
-    pixels.show(); // This sends the updated pixel color to the hardware.
-    delay(delayval); // Delay for a period of time (in milliseconds).
-    }
+  Serial.println("connectés ");
+  strip.setBrightness(127); 
+  strip.setPixelColor(0, color1); // azul?
+  strip.show(); 
+  delay(1000);
 
   }
 
@@ -28,29 +24,31 @@
 
     if (CO<45) {  
       Serial.println("verde");
-      pixels.setPixelColor(0, pixels.Color(0,120,0)); // Moderately bright green color.
-      pixels.show(); // This sends the updated pixel color to the hardware.
+      strip.setBrightness(127); 
+      strip.setPixelColor(0, color4); 
+      strip.show(); 
+  delay(1000);
       }
       else if (CO>=45 && CO <= 75) {
         Serial.println("amarillo");
-        pixels.setPixelColor(0, pixels.Color(170,170,0)); // Moderately bright green color.
-        pixels.show(); // This sends the updated pixel color to the hardware.
+        strip.setBrightness(127); 
+        strip.setPixelColor(0, color5); 
+        strip.show(); 
         }
         else {
               Serial.println("rojo");
-              pixels.setPixelColor(0, pixels.Color(170,20,0)); // Moderately bright green color.
-              pixels.show(); // This sends the updated pixel color to the hardware.
+              strip.setBrightness(127); 
+              strip.setPixelColor(0, color3); 
+              strip.show(); 
               }
     
     }
 
     else if (x==3){
-        pixels.setPixelColor(0, pixels.Color(20,127,80)); // Moderately bright green color.
-        pixels.show(); // This sends the updated pixel color to the hardware.
-        delay(delayval); // Delay for a period of time (in milliseconds).
-        pixels.setPixelColor(0, pixels.Color(127,127,80)); // Moderately bright green color.
-        pixels.show(); // This sends the updated pixel color to the hardware.
-        delay(delayval); // Delay for a period of time (in milliseconds).
+      Serial.println("naranja");
+      strip.setBrightness(127); 
+      strip.setPixelColor(0, color2); 
+      strip.show(); 
         }
   
  } 

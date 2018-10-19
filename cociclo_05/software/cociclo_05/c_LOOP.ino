@@ -113,7 +113,7 @@ ledIndicator(2); // varie selon les valeurs de CO
   Serial.println();
   Serial.println("closing connection");
 
-///////// Feedback neopixel données envoyées ////////
+///////// Feedback dotstar données envoyées ////////
 
   ledIndicator(3);
 

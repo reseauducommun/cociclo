@@ -5,6 +5,13 @@
   techiesms
 *********************************************************************/
 
+// mercis à :
+
+// artengine
+// UQAM - École des arts visuels et médiatiques
+// Le FabLab du PEC
+// Perte de Signal
+// UN/LOQUER
 
 ///////////////// PMS 3000 ////////////////////////////////////////////
 

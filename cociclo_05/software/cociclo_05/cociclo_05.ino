@@ -105,17 +105,21 @@ int CO = 0;  // variable to store the value coming from the sensor
 
 
 
-////////////// Neopixel ////////////////////
+// DOTSTAR ///////////////////////////////////////////////
 
-#include <Adafruit_NeoPixel.h>
-#ifdef __AVR__
-#include <avr/power.h>
-#endif
+#include <Adafruit_DotStar.h>
+#include <SPI.h>    // pour les dotstars
+#define NUMPIXELS 2 // Number of LEDs in strip
+#define DATAPIN    D2
+#define CLOCKPIN   D3
+Adafruit_DotStar strip = Adafruit_DotStar(NUMPIXELS, DATAPIN, CLOCKPIN, DOTSTAR_BGR);
 
-#define PIN            D2
-#define NUMPIXELS      1  /// 4
-Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
-int delayval = 750; // delay for half a second
+ uint32_t color0 = 0xDDDDDD; // blanco
+ uint32_t color1 = 0x0000FF; // azul
+ uint32_t color2 = 0xCC3300; // naranja
+ uint32_t color3 = 0xFF0000; // rojo 
+ uint32_t color4 = 0x00FF00; // verde
+ uint32_t color5 = 0x00DDDD; // amarillo
 
 /////////////////////////////////////////
 
@@ -126,7 +130,7 @@ int delayval = 750; // delay for half a second
 //Credentials for Google GeoLocation API...
 const char* Host = "www.googleapis.com";
 String thisPage = "/geolocation/v1/geolocate?key=";
-String key = "AIzaSyDXj6CqtjLdjzhUWLwQ-8bojvBYrdEfQ1w";
+String key = "";
 
 int status = WL_IDLE_STATUS;
 String jsonString = "{\n";
@@ -134,6 +138,6 @@ String jsonString = "{\n";
 double latitude    = 0.0;
 double longitude   = 0.0;
 double accuracy    = 0.0;
-int more_text = 0; // set to 1 for more debug output
+int more_text = 1; // set to 1 for more debug output
 
 ////////////////////////////////////////////////////
