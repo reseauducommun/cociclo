@@ -119,7 +119,7 @@ Adafruit_DotStar strip = Adafruit_DotStar(NUMPIXELS, DATAPIN, CLOCKPIN, DOTSTAR_
  uint32_t color2 = 0xCC3300; // naranja
  uint32_t color3 = 0xFF0000; // rojo 
  uint32_t color4 = 0x00FF00; // verde
- uint32_t color5 = 0x00DDDD; // amarillo
+ uint32_t color5 = 0xFFFF00; // amarillo
 
 /////////////////////////////////////////
 
@@ -130,7 +130,7 @@ Adafruit_DotStar strip = Adafruit_DotStar(NUMPIXELS, DATAPIN, CLOCKPIN, DOTSTAR_
 //Credentials for Google GeoLocation API...
 const char* Host = "www.googleapis.com";
 String thisPage = "/geolocation/v1/geolocate?key=";
-String key = "";
+String key = "AIzaSyAKK51GQ6_W1z73Fr77Q0xlguP-lL6avTI";
 
 int status = WL_IDLE_STATUS;
 String jsonString = "{\n";
