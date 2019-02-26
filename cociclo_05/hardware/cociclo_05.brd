@@ -17326,9 +17326,9 @@
 <text x="32.66948125" y="26.9087625" size="0.9144" layer="191" ratio="14" distance="46" rot="MR180">G</text>
 <text x="32.176725" y="16.657321875" size="0.9144" layer="191" ratio="14" distance="46" rot="MR180">D1</text>
 <text x="32.146240625" y="19.364965625" size="0.9144" layer="191" ratio="14" distance="46" rot="MR180">D2</text>
-<text x="25.262840625" y="3.85064375" size="0.9144" layer="191" ratio="14" distance="46" rot="MR0">D7</text>
-<text x="20.03044375" y="3.9217625" size="0.9144" layer="191" ratio="14" distance="46" rot="MR0">G</text>
-<text x="28.0263625" y="3.870959375" size="0.9144" layer="191" ratio="14" distance="46" rot="MR0">3V</text>
+<text x="22.570440625" y="3.64744375" size="0.9144" layer="191" ratio="14" distance="46" rot="MR0">D7</text>
+<text x="17.49044375" y="3.7947625" size="0.9144" layer="191" ratio="14" distance="46" rot="MR0">G</text>
+<text x="25.2577625" y="3.616959375" size="0.9144" layer="191" ratio="14" distance="46" rot="MR0">3V</text>
 <text x="40.863521875" y="7.752078125" size="0.9144" layer="191" ratio="14" distance="46" rot="MR0">V+</text>
 <text x="28.6562875" y="15.585440625" size="0.9144" layer="197" ratio="14" distance="46">3V3</text>
 <text x="29.245565625" y="20.934678125" size="0.9144" layer="197" ratio="14" distance="46">D7</text>
@@ -20643,7 +20643,7 @@
 <text x="43.0682375" y="0.7264375" size="0.9144" layer="191" ratio="14" distance="46" rot="MR0">A0</text>
 <text x="33.1317625" y="0.721359375" size="0.9144" layer="191" ratio="14" distance="46" rot="MR0">3V</text>
 <text x="46.375321875" y="26.563315625" size="0.9144" layer="191" ratio="14" distance="46" rot="MR0">G</text>
-<text x="46.603921875" y="29.951678125" size="0.9144" layer="191" ratio="14" distance="46" rot="MR0">V+</text>
+<text x="46.527721875" y="29.697678125" size="0.9144" layer="191" ratio="14" distance="46" rot="MR0">V+</text>
 <rectangle x1="7.6835" y1="18.7833" x2="7.7089" y2="18.8087" layer="193" rot="R270"/>
 <rectangle x1="7.6835" y1="15.6591" x2="7.7089" y2="15.6845" layer="193" rot="R270"/>
 <rectangle x1="7.6454" y1="13.9954" x2="7.747" y2="14.0208" layer="193" rot="R270"/>
