@@ -1,4 +1,4 @@
-
+/// This part of the project is inspired by the "Dioxygraphe" from Andrew Chartier -> https://esse.ca/portfolio/andrew-chartier/
 /// C'est une carte Leonardo
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
